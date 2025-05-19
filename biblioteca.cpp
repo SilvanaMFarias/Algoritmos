@@ -38,5 +38,5 @@ void Biblioteca::mostrar_informacion() const {
   cout << "Ciudad: " << ciudad << endl;
   cout << "Superficie: " << fixed << setprecision(2) << superficie << " km cuadrados" << endl;
   cout << "Cantidad de libros: " << cantidad_libros << endl;
-  cout << "Cantidad de usuarios: " << cantidad_usuarios << endl << endl;
+  cout << "Cantidad de usuarios: " << cantidad_usuarios << endl;
 }

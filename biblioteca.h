@@ -14,9 +14,11 @@ private:
   int cantidad_usuarios;
 
 public:
-  // Constructor
-  Biblioteca(string codigo, string nombre, string ciudad, float superficie, int cantidad_libros, int cantidad_usuarios);
+  //Constructor por defecto
   Biblioteca() = default;
+  // Constructor con parámetros
+  Biblioteca(string codigo, string nombre, string ciudad, float superficie, int cantidad_libros, int cantidad_usuarios);
+
 
   // Getters
   string get_codigo() const;
