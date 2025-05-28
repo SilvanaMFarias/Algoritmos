@@ -4,12 +4,12 @@
 
 using namespace std;
 
-Biblioteca::Biblioteca(string codigo, string nombre, string ciudad, float superficie, int cantidad_libros, int cantidad_usuarios)
-  : codigo(codigo), nombre(nombre), ciudad(ciudad), superficie(superficie),
+Biblioteca::Biblioteca(string codigo_biblioteca, string nombre, string ciudad, float superficie, int cantidad_libros, int cantidad_usuarios)
+  : codigo_biblioteca(codigo_biblioteca), nombre(nombre), ciudad(ciudad), superficie(superficie),
   cantidad_libros(cantidad_libros), cantidad_usuarios(cantidad_usuarios) {}
 
-string Biblioteca::get_codigo() const {
-  return codigo;
+string Biblioteca::get_codigo_biblioteca() const {
+  return codigo_biblioteca;
 }
 
 string Biblioteca::get_nombre() const {
@@ -33,7 +33,7 @@ int Biblioteca::get_cantidad_usuarios() const {
 }
 
 void Biblioteca::mostrar_informacion() const {
-  cout << endl << "Codigo: " << codigo << endl;
+  cout << endl << "Codigo biblioteca: " << codigo_biblioteca << endl;
   cout << "Nombre: " << nombre << endl;
   cout << "Ciudad: " << ciudad << endl;
   cout << "Superficie: " << fixed << setprecision(2) << superficie << " km cuadrados" << endl;

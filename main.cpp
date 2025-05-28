@@ -1,9 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <string>
 #include "biblioteca.h"
 #include "prestamo.h"
 #include "lista.h"
+#include "ABB.h"
 
 using namespace std;
 
@@ -12,6 +14,10 @@ int main() {
   Lista<Biblioteca> lista_bibliotecas;
   /*Creo una lista de objetos prestamos*/
   Lista<Prestamo> lista_prestamos;
+  /*Creo un árbol de objetos biblioteca*/
+  ABB<Biblioteca> arbol_bibliotecas;
+  /*Creo una lista de objetos prestamos*/
+  ABB<Prestamo> arbol_prestamos;
   string linea;
 
   /***********************************************************/
@@ -49,6 +55,7 @@ int main() {
 
     Biblioteca *b = new Biblioteca(codigo, nombre, ciudad, superficie, cantidad_libros, cantidad_usuarios);
     lista_bibliotecas.alta(*b, 1);
+    arbol_bibliotecas.insertar(*b);
     }
   }
   
@@ -59,6 +66,9 @@ int main() {
   lista_bibliotecas.mostrar();
   // Liberar memoria de la lista
   lista_bibliotecas.~Lista();
+  cout << endl << "Mostrando el arbol de bibliotecas del archivo bibliotecas.txt. Recorrido inorden" << endl;
+  arbol_bibliotecas.mostrarRecorridoInorden();
+  arbol_bibliotecas.~ABB();
 
   /***********************************************************/
   /*                  PROCESO ARCHIVO PRESTAMOS              */
@@ -86,16 +96,21 @@ int main() {
 
     Prestamo *p = new Prestamo(codigo_biblioteca, isbn, usuario_id, fecha_dia);
     lista_prestamos.alta(*p, 1);
+    arbol_prestamos.insertar(*p);
     }
   }
   
   archivo_prestamos.close();
 
   cout << "Mostrando la lista de prestamos del archivo prestamos.txt:" << endl << endl;
-  // Mostrar todas los prestamos
+  // Mostrar la lista de prestamos
   lista_prestamos.mostrar();
   // Liberar memoria de la lista
   lista_prestamos.~Lista();
-
+  // Mostrar el árbol de préstamos
+  cout << "Mostrando el arbol de prestamos del archivo prestamos.txt. Recorrido Inorden" << endl;
+  arbol_prestamos.mostrarRecorridoInorden();
+  // Liberar memoria del árbol
+  arbol_prestamos.~ABB();
   return 0;
 }

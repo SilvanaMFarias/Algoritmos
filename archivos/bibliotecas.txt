@@ -1,2 +1,4 @@
+UNAHUR	Biblioteca Miguel Cervantes	VILLA TESEI	0.35	17800	950
 FCE	Biblioteca Economicas	CABA	0.85	24500	1200
 FADU	Biblioteca Arquitectura	CABA	0.65	17800	850
+UNLAM	Leopoldo Marechal	SAN JUSTO	0.55	10500	750

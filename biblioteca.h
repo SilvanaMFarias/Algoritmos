@@ -1,12 +1,11 @@
 #ifndef BIBLIOTECA_H
 #define BIBLIOTECA_H
 #include <string>
-
 using namespace std;
 
 class Biblioteca {
 private:
-  string codigo;
+  string codigo_biblioteca;
   string nombre;
   string ciudad;
   float superficie;
@@ -17,11 +16,11 @@ public:
   //Constructor por defecto
   Biblioteca() = default;
   // Constructor con parámetros
-  Biblioteca(string codigo, string nombre, string ciudad, float superficie, int cantidad_libros, int cantidad_usuarios);
+  Biblioteca(string codigo_biblioteca, string nombre, string ciudad, float superficie, int cantidad_libros, int cantidad_usuarios);
 
 
   // Getters
-  string get_codigo() const;
+  string get_codigo_biblioteca() const;
   string get_nombre() const;
   string get_ciudad() const;
   float get_superficie() const;
