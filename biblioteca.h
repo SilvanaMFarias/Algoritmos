@@ -5,30 +5,30 @@ using namespace std;
 
 class Biblioteca {
 private:
-  string codigo_biblioteca;
+  string codigoBiblioteca;
   string nombre;
   string ciudad;
   float superficie;
-  int cantidad_libros;
-  int cantidad_usuarios;
+  int cantidadLibros;
+  int cantidadUsuarios;
 
 public:
   //Constructor por defecto
   Biblioteca() = default;
   // Constructor con parámetros
-  Biblioteca(string codigo_biblioteca, string nombre, string ciudad, float superficie, int cantidad_libros, int cantidad_usuarios);
+  Biblioteca(string codigoBiblioteca, string nombre, string ciudad, float superficie, int cantidadLibros, int cantidadUsuarios);
 
 
   // Getters
-  string get_codigo_biblioteca() const;
-  string get_nombre() const;
-  string get_ciudad() const;
-  float get_superficie() const;
-  int get_cantidad_libros() const;
-  int get_cantidad_usuarios() const;
+  string getCodigoBiblioteca() const;
+  string getNombre() const;
+  string getCiudad() const;
+  float getSuperficie() const;
+  int getCantidadLibros() const;
+  int getCantidadUsuarios() const;
 
   // Mostrar información
-  void mostrar_informacion() const;
+  void mostrarInformacion() const;
 };
 
 #endif // BIBLIOTECA_H

@@ -36,7 +36,7 @@ template <typename T>
 void ABB<T>::insertarRecursivo(NodoArbol<T>*& nodo, T dato) {
   if (nodo == nullptr) {
     nodo = new NodoArbol<T>(dato);
-  } else if (dato.get_codigo_biblioteca() < nodo->obtenerDato().get_codigo_biblioteca()) {
+  } else if (dato.getCodigoBiblioteca() < nodo->obtenerDato().getCodigoBiblioteca()) {
     insertarRecursivo(nodo->obtenerHijoIzquierdo(), dato);
   } else {
     insertarRecursivo(nodo->obtenerHijoDerecho(), dato);
@@ -55,7 +55,7 @@ template <typename T>
 void ABB<T>::preordenRecursivo(NodoArbol<T>* nodo) {
   if (nodo != nullptr) {
     //cout << nodo->obtenerDato() << " ";
-    nodo->obtenerDato().mostrar_informacion();
+    nodo->obtenerDato().mostrarInformacion();
     preordenRecursivo(nodo->obtenerHijoIzquierdo());
     preordenRecursivo(nodo->obtenerHijoDerecho());
   }
@@ -73,7 +73,7 @@ void ABB<T>::postordenRecursivo(NodoArbol<T>* nodo) {
     postordenRecursivo(nodo->obtenerHijoIzquierdo());
     postordenRecursivo(nodo->obtenerHijoDerecho());
     //cout << nodo->obtenerDato() << " ";
-    nodo->obtenerDato().mostrar_informacion();
+    nodo->obtenerDato().mostrarInformacion();
   }
 }
 
@@ -88,7 +88,7 @@ void ABB<T>::inordenRecursivo(NodoArbol<T>* nodo) {
   if (nodo != nullptr) {
     inordenRecursivo(nodo->obtenerHijoIzquierdo());
     //cout << nodo->obtenerDato() << " ";
-    nodo->obtenerDato().mostrar_informacion();
+    nodo->obtenerDato().mostrarInformacion();
     inordenRecursivo(nodo->obtenerHijoDerecho());
   }
 }
@@ -147,7 +147,7 @@ void ABB<T>::mostrarRecorridoInordenIterativo() {
       actual = pila.top();
       pila.pop();
       //cout << actual->obtenerDato() << " ";
-      actual->obtenerDato().mostrar_informacion();
+      actual->obtenerDato().mostrarInformacion();
 
       // Va al subárbol derecho
       actual = actual->obtenerHijoDerecho();

@@ -91,7 +91,7 @@ public:
         {
             for (int i = 1; i <= largo; i++){
                 dato = this->consulta(i);
-                dato.mostrar_informacion();
+                dato.mostrarInformacion();
             }
             //cout << this->consulta(largo);
         }

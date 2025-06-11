@@ -3,27 +3,27 @@
 
 using namespace std;
 
-Prestamo::Prestamo(string codigo_biblioteca, string isbn, int usuario_id, int fecha_dia)
-  : codigo_biblioteca(codigo_biblioteca), isbn(isbn), usuario_id(usuario_id), fecha_dia(fecha_dia) {}
+Prestamo::Prestamo(string codigoBiblioteca, string isbn, int usuarioId, int fechaDia)
+  : codigoBiblioteca(codigoBiblioteca), isbn(isbn), usuarioId(usuarioId), fechaDia(fechaDia) {}
 
-string Prestamo::get_codigo_biblioteca() const {
-  return codigo_biblioteca;
+string Prestamo::getCodigoBiblioteca() const {
+  return codigoBiblioteca;
 }
 
-string Prestamo::get_isbn() const {
+string Prestamo::getIsbn() const {
   return isbn;
 }
 
-int Prestamo::get_usuario_id() const {
-  return usuario_id;
+int Prestamo::getUsuarioId() const {
+  return usuarioId;
 }
 
-int Prestamo::get_fecha_dia() const {
-  return fecha_dia;
+int Prestamo::getFechaDia() const {
+  return fechaDia;
 }
 
 // Convierte fecha de int en formato YYYYMMDD a string dd/mm/aaaa
-string formatear_fecha(int fecha) {
+string formatearFecha(int fecha) {
     string f = to_string(fecha); 
     string anio = f.substr(0, 4);
     string mes = f.substr(4, 2);
@@ -31,9 +31,9 @@ string formatear_fecha(int fecha) {
     return dia + "/" + mes + "/" + anio;
 }
 
-void Prestamo::mostrar_informacion() const {
-  cout << endl << "Codigo Biblioteca: " << codigo_biblioteca << endl;
+void Prestamo::mostrarInformacion() const {
+  cout << endl << "Codigo Biblioteca: " << codigoBiblioteca << endl;
   cout << "ISBN: " << isbn << endl;
-  cout << "ID Usuario: " << usuario_id << endl;
-  cout << "Fecha: " << formatear_fecha(fecha_dia) << endl;
+  cout << "ID Usuario: " << usuarioId << endl;
+  cout << "Fecha: " << formatearFecha(fechaDia) << endl;
 }
