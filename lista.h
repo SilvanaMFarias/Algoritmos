@@ -75,6 +75,7 @@ public:
 
     // pos: libera la memoria
     virtual ~Lista(){
+        cout << "Destruyendo lista..." << endl;
         while (! vacia())
             baja(1);
     }
