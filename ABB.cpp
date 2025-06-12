@@ -12,6 +12,7 @@ ABB<T>::ABB() {
 
 template <typename T>
 ABB<T>::~ABB() {
+  cout << "Eliminando arbol...";
   liberar(raiz);
 }
 

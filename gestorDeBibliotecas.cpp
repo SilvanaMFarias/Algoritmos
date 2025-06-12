@@ -5,6 +5,7 @@
 using namespace std;
 
 void GestorDeBibliotecas::cargarDesdeArchivo(string nombreArchivo) {
+  cantidad = 0;
   string rutaArchivo = "archivos/" + nombreArchivo;
   ifstream archivo(rutaArchivo);
   if (!archivo.is_open()) {
@@ -25,17 +26,29 @@ void GestorDeBibliotecas::cargarDesdeArchivo(string nombreArchivo) {
     getline(ss, usuariosStr)) {
 
     float superficie = stof(superficieStr);
-    int libros = stoi(librosStr);
-    int usuarios = stoi(usuariosStr);
-
-    Biblioteca b(codigo, nombre, ciudad, superficie, libros, usuarios);
-    listaB.alta(b, 1);
+    int cantidadLibros = stoi(librosStr);
+    int cantidadUsuarios = stoi(usuariosStr);
+    
+    Biblioteca *b = new Biblioteca(codigo, nombre, ciudad, superficie, cantidadLibros, cantidadUsuarios);
+    listaB.alta(*b, 1);
+    arbolB.insertar(*b);
+    cantidad++;
     }
   }
-
   archivo.close();
 }
 
-void GestorDeBibliotecas::mostrarTodas(){
+void GestorDeBibliotecas::mostrarTodasLista(){
+  cout << "Mostrando lista: " << endl;
   listaB.mostrar();
+}
+
+void GestorDeBibliotecas::mostrarTodasArbolIndorden(){
+  cout << "Mostrando arbol inorden: " << endl;
+  arbolB.mostrarRecorridoInorden();
+}
+
+GestorDeBibliotecas::~GestorDeBibliotecas(){
+  listaB.~Lista();
+  arbolB.~ABB();
 }

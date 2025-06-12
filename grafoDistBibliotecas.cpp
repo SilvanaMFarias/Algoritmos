@@ -55,9 +55,6 @@ void GrafoDistBibliotecas::cargarDesdeArchivo(string nombreArchivo) {
 
   // La cantidad de nodos será la cantidad de filas y columnas que debe tener la matriz
   cantidadNodos = nombres.size();
-  
-  // Se asigna valor al atributo cantidad nodos
-  cantidadNodos = nombres.size();
 
   // Se redimensionan las matrices para que sean una matriz cuadrada de tamaño cantidadNodos x cantidadNodos
   // Cada fila es un vector de 'cantidadNodos' elementos
@@ -158,10 +155,7 @@ void GrafoDistBibliotecas::mostrarMatricesDistanciasYRecorridos(){
             if (matrizDistancias[k][j] != numeric_limits<double>::infinity())
             {
               float dt = matrizDistancias[i][k] + matrizDistancias[k][j];
-              cout << "valor de dt" << dt << endl;
-              cout << "valor de matriz distancias [i][j]" << matrizDistancias[i][j] << endl;
               if(dt < matrizDistancias[i][j]){
-                cout << "Esta entrando aca???? " << endl;
                 matrizDistancias[i][j] = dt;
                 matrizRecorridos[i][j] = matrizRecorridos[i][k];
               }
