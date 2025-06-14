@@ -7,26 +7,26 @@ using namespace std;
 
 class Prestamo {
 private:
-  string codigo_biblioteca;
+  string codigoBiblioteca;
   string isbn;
-  int usuario_id;
-  int fecha_dia;
+  int usuarioId;
+  int fechaDia;
 
 public:
   //Constructor por defecto
   Prestamo()=default;
   // Constructor con parámetros
-  Prestamo(string codigo_biblioteca, string isbn, int usuario_id, int fecha_dia);
+  Prestamo(string codigoBiblioteca, string isbn, int usuarioId, int fechaDia);
 
 
   // Getters
-  string get_codigo_biblioteca() const;
-  string get_isbn() const;
-  int get_usuario_id() const;
-  int get_fecha_dia() const;
+  string getCodigoBiblioteca() const;
+  string getIsbn() const;
+  int getUsuarioId() const;
+  int getFechaDia() const;
 
   // Mostrar información
-  void mostrar_informacion() const;
+  void mostrarInformacion() const;
 };
 
 #endif // PRESTAMO_H

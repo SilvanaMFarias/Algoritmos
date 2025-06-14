@@ -75,6 +75,7 @@ public:
 
     // pos: libera la memoria
     virtual ~Lista(){
+        cout << "Destruyendo lista..." << endl;
         while (! vacia())
             baja(1);
     }
@@ -91,7 +92,7 @@ public:
         {
             for (int i = 1; i <= largo; i++){
                 dato = this->consulta(i);
-                dato.mostrar_informacion();
+                dato.mostrarInformacion();
             }
             //cout << this->consulta(largo);
         }

@@ -5,38 +5,38 @@
 using namespace std;
 
 Biblioteca::Biblioteca(string codigo_biblioteca, string nombre, string ciudad, float superficie, int cantidad_libros, int cantidad_usuarios)
-  : codigo_biblioteca(codigo_biblioteca), nombre(nombre), ciudad(ciudad), superficie(superficie),
-  cantidad_libros(cantidad_libros), cantidad_usuarios(cantidad_usuarios) {}
+  : codigoBiblioteca(codigo_biblioteca), nombre(nombre), ciudad(ciudad), superficie(superficie),
+  cantidadLibros(cantidad_libros), cantidadUsuarios(cantidad_usuarios) {}
 
-string Biblioteca::get_codigo_biblioteca() const {
-  return codigo_biblioteca;
+string Biblioteca::getCodigoBiblioteca() const {
+  return codigoBiblioteca;
 }
 
-string Biblioteca::get_nombre() const {
+string Biblioteca::getNombre() const {
   return nombre;
 }
 
-string Biblioteca::get_ciudad() const {
+string Biblioteca::getCiudad() const {
   return ciudad;
 }
 
-float Biblioteca::get_superficie() const {
+float Biblioteca::getSuperficie() const {
   return superficie;
 }
 
-int Biblioteca::get_cantidad_libros() const {
-  return cantidad_libros;
+int Biblioteca::getCantidadLibros() const {
+  return cantidadLibros;
 }
 
-int Biblioteca::get_cantidad_usuarios() const {
-  return cantidad_usuarios;
+int Biblioteca::getCantidadUsuarios() const {
+  return cantidadUsuarios;
 }
 
-void Biblioteca::mostrar_informacion() const {
-  cout << endl << "Codigo biblioteca: " << codigo_biblioteca << endl;
+void Biblioteca::mostrarInformacion() const {
+  cout << endl << "Codigo biblioteca: " << codigoBiblioteca << endl;
   cout << "Nombre: " << nombre << endl;
   cout << "Ciudad: " << ciudad << endl;
   cout << "Superficie: " << fixed << setprecision(2) << superficie << " km cuadrados" << endl;
-  cout << "Cantidad de libros: " << cantidad_libros << endl;
-  cout << "Cantidad de usuarios: " << cantidad_usuarios << endl;
+  cout << "Cantidad de libros: " << cantidadLibros << endl;
+  cout << "Cantidad de usuarios: " << cantidadUsuarios << endl;
 }
