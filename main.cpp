@@ -2,7 +2,7 @@
 #include <string>
 #include "biblioteca.h"
 #include "gestorDeBibliotecas.h"
-#include "gestorDePrestamos.h"
+#include "gestorDePrestamos.h" 
 #include "lista.h"
 
 using namespace std;
@@ -15,17 +15,20 @@ void mostrarMenu() {
     cout << "4. Cargar prestamos desde archivo" << endl;
     cout << "5. Mostrar prestamos (lista)" << endl;
     cout << "6. Mostrar prestamos (arbol inorden)" << endl;
+    cout << "7. Agregar nueva biblioteca" << endl;
     cout << "0. Salir" << endl;
     cout << "Seleccione una opcion: ";
 }
 
 int main() {
     GestorDeBibliotecas gb;
-    GestorDePrestamos gp;
+    GestorDePrestamos gp; 
 
     int opcion;
     bool cargadasBibliotecas = false;
     bool cargadosPrestamos = false;
+    string nombreArchivoBibliotecas = "bibliotecas.txt";
+    string nombreArchivoPrestamos = "prestamos.txt";
 
     do {
         mostrarMenu();
@@ -33,50 +36,55 @@ int main() {
 
         switch(opcion) {
             case 1:
-                gb.cargarDesdeArchivo("bibliotecas.txt");
+                gb.cargarDesdeArchivo(nombreArchivoBibliotecas);
                 cout << "Bibliotecas cargadas correctamente.\n";
                 cargadasBibliotecas = true;
                 break;
 
             case 2:
                 if (cargadasBibliotecas) {
-                    cout << "\n--- Bibliotecas en lista ---\n";
                     gb.mostrarTodasLista();
                 } else {
-                    cout << "Primero debe cargar las bibliotecas.\n";
+                    cout << "Primero debe cargar las bibliotecas (opcion 1).\n";
                 }
                 break;
 
             case 3:
                 if (cargadasBibliotecas) {
-                    cout << "\n--- Bibliotecas en arbol (inorden) ---\n";
                     gb.mostrarTodasArbolIndorden();
                 } else {
-                    cout << "Primero debe cargar las bibliotecas.\n";
+                    cout << "Primero debe cargar las bibliotecas (opcion 1).\n";
                 }
                 break;
 
             case 4:
-                gp.cargarDesdeArchivo("prestamos.txt");
+                gp.cargarDesdeArchivo(nombreArchivoPrestamos);
                 cout << "Prestamos cargados correctamente.\n";
                 cargadosPrestamos = true;
                 break;
 
             case 5:
                 if (cargadosPrestamos) {
-                    cout << "\n--- Prestamos en lista ---\n";
                     gp.mostrarTodosLista();
                 } else {
-                    cout << "Primero debe cargar los prestamos.\n";
+                    cout << "Primero debe cargar los prestamos (opcion 4).\n";
                 }
                 break;
 
             case 6:
                 if (cargadosPrestamos) {
-                    cout << "\n--- Prestamos en arbol (inorden) ---\n";
                     gp.mostrarTodosArbolIndorden();
                 } else {
-                    cout << "Primero debe cargar los prestamos.\n";
+                    cout << "Primero debe cargar los prestamos (opcion 4).\n";
+                }
+                break;
+
+            case 7: 
+                gb.agregarNuevaBiblioteca(nombreArchivoBibliotecas);
+                // No es necesario recargar desde archivo aquí, ya que agregarNuevaBiblioteca
+                // actualiza las estructuras en memoria y el archivo.
+                if (!cargadasBibliotecas) { // Si aún no se habían cargado, ahora sí.
+                    cargadasBibliotecas = true;
                 }
                 break;
 
