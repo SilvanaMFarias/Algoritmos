@@ -2,7 +2,7 @@
 #include <string>
 #include "biblioteca.h"
 #include "gestorDeBibliotecas.h"
-#include "gestorDePrestamos.h" 
+#include "gestorDePrestamos.h"
 #include "lista.h"
 
 using namespace std;
@@ -16,13 +16,14 @@ void mostrarMenu() {
     cout << "5. Mostrar prestamos (lista)" << endl;
     cout << "6. Mostrar prestamos (arbol inorden)" << endl;
     cout << "7. Agregar nueva biblioteca" << endl;
+    cout << "8. Eliminar biblioteca por codigo" << endl; // <--- Opción para eliminar
     cout << "0. Salir" << endl;
     cout << "Seleccione una opcion: ";
 }
 
 int main() {
     GestorDeBibliotecas gb;
-    GestorDePrestamos gp; 
+    GestorDePrestamos gp;
 
     int opcion;
     bool cargadasBibliotecas = false;
@@ -79,12 +80,18 @@ int main() {
                 }
                 break;
 
-            case 7: 
+            case 7:
                 gb.agregarNuevaBiblioteca(nombreArchivoBibliotecas);
-                // No es necesario recargar desde archivo aquí, ya que agregarNuevaBiblioteca
-                // actualiza las estructuras en memoria y el archivo.
-                if (!cargadasBibliotecas) { // Si aún no se habían cargado, ahora sí.
+                if (!cargadasBibliotecas) {
                     cargadasBibliotecas = true;
+                }
+                break;
+
+            case 8: 
+                if (cargadasBibliotecas) {
+                    gb.eliminarBibliotecaPorCodigo(nombreArchivoBibliotecas);
+                } else {
+                    cout << "Primero debe cargar las bibliotecas (opcion 1).\n";
                 }
                 break;
 

@@ -70,10 +70,6 @@ GestorDeBibliotecas::~GestorDeBibliotecas(){
 }
 
 Biblioteca* GestorDeBibliotecas::buscarPorCodigo(const string &codigo) {
-    // Para buscar en la lista (puedes adaptar para buscar en el árbol si es más eficiente)
-    // Esto asume que tu clase Lista tiene un iterador o un método para recorrerla.
-    // Opcionalmente, podrías buscar directamente en el ABB si el ABB está indexado por código.
-    // Para simplificar, buscamos en la lista:
     for (int i = 1; i <= listaB.getCantidad(); ++i) { 
         Biblioteca* b = listaB.buscar(i); 
         if (b && b->getCodigoBiblioteca() == codigo) {
@@ -93,6 +89,33 @@ void GestorDeBibliotecas::agregar(const Biblioteca &biblio) {
     arbolB.insertar(biblio); // Agregamos al árbol
     cantidad++;
     cout << "Biblioteca " << biblio.getNombre() << " agregada correctamente." << endl;
+}
+
+bool GestorDeBibliotecas::eliminar(const string &codigo) {
+    // 1. Buscar en la lista para obtener la posición y el objeto
+    int posicionEnLista = -1;
+    string nombreBiblioEliminar = ""; /
+
+    for (int i = 1; i <= listaB.getCantidad(); ++i) {
+        Biblioteca* b = listaB.buscar(i);
+        if (b && b->getCodigoBiblioteca() == codigo) {
+            posicionEnLista = i;
+            nombreBiblioEliminar = b->getNombre(); 
+            break;
+        }
+    }
+
+    if (posicionEnLista == -1) {
+        cout << "No se encontro ninguna biblioteca con el codigo: " << codigo << endl;
+        return false;
+    }
+
+    // 2. Eliminar de la Lista
+    listaB.baja(posicionEnLista); 
+    cout << "Biblioteca '" << nombreBiblioEliminar << "' eliminada de la lista." << endl;
+
+    cantidad--; // Decrementar el contador de bibliotecas
+    return true;
 }
 
 void GestorDeBibliotecas::agregarNuevaBiblioteca(string nombreArchivo) {
@@ -148,6 +171,21 @@ void GestorDeBibliotecas::agregarNuevaBiblioteca(string nombreArchivo) {
     guardarEnArchivo(nombreArchivo);
 }
 
+void GestorDeBibliotecas::eliminarBibliotecaPorCodigo(string nombreArchivo) {
+    cout << "\n--- Eliminar Biblioteca ---" << endl;
+    string codigoAEliminar;
+    cout << "Ingrese el codigo de la biblioteca a eliminar: ";
+    cin >> codigoAEliminar;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    if (eliminar(codigoAEliminar)) { // Llama al método eliminar principal
+        cout << "Biblioteca eliminada exitosamente." << endl;
+        // Si se eliminó de las estructuras en memoria, guardar en archivo
+        guardarEnArchivo(nombreArchivo);
+    } else {
+        cout << "No se pudo eliminar la biblioteca (revisar el codigo ingresado)." << endl;
+    }
+}
 
 void GestorDeBibliotecas::guardarEnArchivo(string nombreArchivo) {
     string rutaArchivo = "archivos/" + nombreArchivo;

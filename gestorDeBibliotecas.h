@@ -22,11 +22,11 @@ public:
   void mostrarTodasArbolIndorden();
   void consultarCaminoMinimo();
   Biblioteca* buscarPorCodigo(const string &codigo);
-  void agregar(const Biblioteca &biblio); 
-  // bool eliminar(const string &codigo);
+  void agregar(const Biblioteca &biblio);
+  bool eliminar(const string &codigo); 
   void agregarNuevaBiblioteca(string nombreArchivo);
-  // Nuevo método para guardar los datos actualizados en el archivo
   void guardarEnArchivo(string nombreArchivo);
+  void eliminarBibliotecaPorCodigo(string nombreArchivo);
 };
 
 #endif
