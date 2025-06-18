@@ -21,8 +21,8 @@ class GrafoDistBibliotecas {
 private:
   unordered_map<string, int> nombreAIndice;
   vector<string> indiceANombre;
-  vector<vector<double>> matrizDistancias;
-  vector<vector<int>> matrizRecorridos;
+  vector<vector<double> > matrizDistancias;
+  vector<vector<int> > matrizRecorridos;
   int cantidadNodos;
 
 public:

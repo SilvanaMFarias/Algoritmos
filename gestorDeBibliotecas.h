@@ -21,10 +21,12 @@ public:
   void mostrarTodasLista();
   void mostrarTodasArbolIndorden();
   void consultarCaminoMinimo();
-  /*Biblioteca* buscarPorCodigo(const string &codigo);
+  Biblioteca* buscarPorCodigo(const string &codigo);
   void agregar(const Biblioteca &biblio);
-  bool eliminar(const string &codigo);*/
+  bool eliminar(const string &codigo); 
+  void agregarNuevaBiblioteca(string nombreArchivo);
+  void guardarEnArchivo(string nombreArchivo);
+  void eliminarBibliotecaPorCodigo(string nombreArchivo);
 };
-
 
 #endif

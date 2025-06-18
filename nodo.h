@@ -29,7 +29,7 @@ public:
     }
 
 
-    T obtener_dato(){
+    T& obtener_dato(){
         return dato;
     }
 
