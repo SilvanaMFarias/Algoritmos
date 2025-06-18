@@ -26,7 +26,8 @@ public:
     // pos: inserta el dato d en la posicion pos, la 1 es la primera
     //        ademas incrementa cantidad en 1
     void alta(T d, int pos){
-        Nodo<T>* nuevo = new Nodo(d);
+        Nodo<T>* nuevo = new Nodo<T>(d); // ← Asi me funciona para compilar
+        //Nodo<T>* nuevo = new Nodo(d);
         if (pos == 1)
         {
             nuevo->cambiar_siguiente(primero);
