@@ -16,6 +16,9 @@ public:
   void cargarDesdeArchivo(string nombreArchivo);
   void mostrarTodosLista();
   void mostrarTodosArbolIndorden();
+
+  void cantidadPrestamo(int fecha1, int fecha2);
+  void buscarPrestamo(int userID);
 };
 
 #endif 
