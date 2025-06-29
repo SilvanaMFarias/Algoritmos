@@ -16,7 +16,8 @@ void mostrarMenu() {
     cout << "5. Mostrar prestamos (lista)" << endl;
     cout << "6. Mostrar prestamos (arbol inorden)" << endl;
     cout << "7. Agregar nueva biblioteca" << endl;
-    cout << "8. Eliminar biblioteca por codigo" << endl; // <--- Opción para eliminar
+    cout << "8. Eliminar biblioteca por codigo" << endl;
+    cout << "9. Consultar camino minimo entre bibliotecas" << endl;
     cout << "0. Salir" << endl;
     cout << "Seleccione una opcion: ";
 }
@@ -90,6 +91,14 @@ int main() {
             case 8: 
                 if (cargadasBibliotecas) {
                     gb.eliminarBibliotecaPorCodigo(nombreArchivoBibliotecas);
+                } else {
+                    cout << "Primero debe cargar las bibliotecas (opcion 1).\n";
+                }
+                break;
+
+            case 9:
+                if (cargadasBibliotecas) {
+                    gb.consultarCaminoMinimo();
                 } else {
                     cout << "Primero debe cargar las bibliotecas (opcion 1).\n";
                 }

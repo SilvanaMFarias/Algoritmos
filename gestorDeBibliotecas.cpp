@@ -220,3 +220,50 @@ void GestorDeBibliotecas::guardarEnArchivo(string nombreArchivo) {
     archivo.close();
     cout << "Datos de bibliotecas guardados en " << rutaArchivo << endl;
 }
+
+void GestorDeBibliotecas::consultarCaminoMinimo() {
+    cout << "\n--- Consultar Camino Mínimo entre Bibliotecas ---" << endl;
+    
+    // Primero cargar el grafo si no está cargado
+    string archivoDistancias = "archivos/distanciasEntreBibliotecas.txt";
+    gDb.cargarDesdeArchivo(archivoDistancias);
+    
+    // Calcular las distancias mínimas usando Floyd-Warshall
+    gDb.calcularDistMinFloydWarshall();
+    
+    string bibliotecaOrigen, bibliotecaDestino;
+    
+    cout << "Ingrese el codigo de la biblioteca de origen: ";
+    cin >> bibliotecaOrigen;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    
+    cout << "Ingrese el codigo de la biblioteca de destino: ";
+    cin >> bibliotecaDestino;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    
+    // Verificar que ambas bibliotecas existan en el sistema
+    Biblioteca* origen = buscarPorCodigo(bibliotecaOrigen);
+    Biblioteca* destino = buscarPorCodigo(bibliotecaDestino);
+    
+    if (!origen) {
+        cout << "Error: No se encontro la biblioteca de origen '" << bibliotecaOrigen << "'" << endl;
+        return;
+    }
+    
+    if (!destino) {
+        cout << "Error: No se encontro la biblioteca de destino '" << bibliotecaDestino << "'" << endl;
+        return;
+    }
+    
+    cout << "\n--- Informacion del Camino ---" << endl;
+    cout << "Origen: " << origen->getNombre() << " (" << origen->getCiudad() << ")" << endl;
+    cout << "Destino: " << destino->getNombre() << " (" << destino->getCiudad() << ")" << endl;
+    cout << endl;
+    
+    // Consultar el camino mínimo usando el grafo
+    gDb.consultarDistMin(bibliotecaOrigen, bibliotecaDestino);
+    
+    cout << "\n--- Recomendacion ---" << endl;
+    cout << "Este es el camino optimo para devolver el libro desde " << origen->getNombre();
+    cout << " hasta " << destino->getNombre() << "." << endl;
+}
