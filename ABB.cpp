@@ -155,8 +155,74 @@ void ABB<T>::mostrarRecorridoInordenIterativo() {
     }
 }
 
+// Implementación de métodos de eliminación
+template <typename T>
+bool ABB<T>::eliminar(const string& codigo) {
+    NodoArbol<T>* nodoOriginal = raiz;
+    raiz = eliminarRecursivo(raiz, codigo);
+    return raiz != nodoOriginal; // Retorna true si se eliminó algo
+}
 
+template <typename T>
+NodoArbol<T>* ABB<T>::eliminarRecursivo(NodoArbol<T>* nodo, const string& codigo) {
+    if (nodo == nullptr) {
+        return nullptr; // No se encontró el nodo
+    }
+    
+    // Buscar el nodo a eliminar
+    if (codigo < nodo->obtenerDato().getCodigoBiblioteca()) {
+        nodo->cambiarHijoIzquierdo(eliminarRecursivo(nodo->obtenerHijoIzquierdo(), codigo));
+    } else if (codigo > nodo->obtenerDato().getCodigoBiblioteca()) {
+        nodo->cambiarHijoDerecho(eliminarRecursivo(nodo->obtenerHijoDerecho(), codigo));
+    } else {
+        // Nodo encontrado - proceder con la eliminación
+        
+        // Caso 1: Nodo hoja
+        if (nodo->obtenerHijoIzquierdo() == nullptr && nodo->obtenerHijoDerecho() == nullptr) {
+            delete nodo;
+            return nullptr;
+        }
+        // Caso 2: Nodo con un solo hijo
+        else if (nodo->obtenerHijoIzquierdo() == nullptr) {
+            NodoArbol<T>* temp = nodo->obtenerHijoDerecho();
+            delete nodo;
+            return temp;
+        }
+        else if (nodo->obtenerHijoDerecho() == nullptr) {
+            NodoArbol<T>* temp = nodo->obtenerHijoIzquierdo();
+            delete nodo;
+            return temp;
+        }
+        // Caso 3: Nodo con dos hijos
+        else {
+            // Encontrar el sucesor inorden (mínimo del subárbol derecho)
+            NodoArbol<T>* sucesor = encontrarMinimo(nodo->obtenerHijoDerecho());
+            
+            // Copiar el dato del sucesor al nodo actual
+            nodo->cambiarDato(sucesor->obtenerDato());
+            
+            // Eliminar el sucesor
+            nodo->cambiarHijoDerecho(eliminarRecursivo(nodo->obtenerHijoDerecho(), 
+                                                      sucesor->obtenerDato().getCodigoBiblioteca()));
+        }
+    }
+    
+    return nodo;
+}
 
+template <typename T>
+NodoArbol<T>* ABB<T>::encontrarMinimo(NodoArbol<T>* nodo) {
+    if (nodo == nullptr) {
+        return nullptr;
+    }
+    
+    // El mínimo es el nodo más a la izquierda
+    while (nodo->obtenerHijoIzquierdo() != nullptr) {
+        nodo = nodo->obtenerHijoIzquierdo();
+    }
+    
+    return nodo;
+}
 
 // Instanciaciones explícitas
 template class ABB<Prestamo>;

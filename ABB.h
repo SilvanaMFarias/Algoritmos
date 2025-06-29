@@ -14,6 +14,10 @@ private:
   void liberar(NodoArbol<T>* nodo);
   int contarNodosRecursivo(NodoArbol<T>* nodo);
   int calcularAltura(NodoArbol<T>* nodo);
+  
+  // Métodos para eliminación
+  NodoArbol<T>* eliminarRecursivo(NodoArbol<T>* nodo, const string& codigo);
+  NodoArbol<T>* encontrarMinimo(NodoArbol<T>* nodo);
 
 public:
   ABB();
@@ -26,6 +30,9 @@ public:
   void mostrarRecorridoInordenIterativo();
   int contarNodos();
   int obtenerAltura();
+  
+  // Método público para eliminar
+  bool eliminar(const string& codigo);
 };
 
 #endif // ABB_H_INCLUDED
