@@ -98,11 +98,11 @@ void GestorDePrestamos::cargaDePrestamo(int carga, int yyyymmdd)
   }
 }
 
-void GestorDePrestamos::buscarPrestamo(int userID)
+void GestorDePrestamos::buscarPrestamo(string isbn)
 {//complejidad lineal de N 
   for(int i=1; i<listaP.obtener_largo();i++)
   {
-    if(listaP.consulta(i).getUsuarioId()==userID)
+    if(listaP.consulta(i).getIsbn()==isbn)
     {
       listaP.consulta(i).mostrarInformacion();
     }

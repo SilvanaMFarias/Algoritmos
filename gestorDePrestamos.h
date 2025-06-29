@@ -6,6 +6,8 @@
 #include "ABB.h"
 #include <bits/stdc++.h>
 #include <string>
+using namespace std;
+
 class GestorDePrestamos {
 private:
   int cantidad;
@@ -21,7 +23,7 @@ public:
 
   void cantidadPrestamo(int fecha1, int fecha2);
   void cargaDePrestamo(int carga, int partida);
-  void buscarPrestamo(int userID);
+  void buscarPrestamo(string isbn);
 };
 
 #endif 
