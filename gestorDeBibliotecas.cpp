@@ -94,7 +94,7 @@ void GestorDeBibliotecas::agregar(const Biblioteca &biblio) {
 bool GestorDeBibliotecas::eliminar(const string &codigo) {
     // 1. Buscar en la lista para obtener la posición y el objeto
     int posicionEnLista = -1;
-    string nombreBiblioEliminar = ""; /
+    string nombreBiblioEliminar = ""; 
 
     for (int i = 1; i <= listaB.getCantidad(); ++i) {
         Biblioteca* b = listaB.buscar(i);
@@ -113,6 +113,13 @@ bool GestorDeBibliotecas::eliminar(const string &codigo) {
     // 2. Eliminar de la Lista
     listaB.baja(posicionEnLista); 
     cout << "Biblioteca '" << nombreBiblioEliminar << "' eliminada de la lista." << endl;
+
+    // 3. Eliminar del Árbol
+    if (arbolB.eliminar(codigo)) {
+        cout << "Biblioteca '" << nombreBiblioEliminar << "' eliminada del arbol." << endl;
+    } else {
+        cout << "Advertencia: No se pudo eliminar la biblioteca del arbol." << endl;
+    }
 
     cantidad--; // Decrementar el contador de bibliotecas
     return true;
