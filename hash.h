@@ -45,7 +45,7 @@ class Hash {
 private:
     int capacidad, elementos;
     NodoHash<T>** arreglo;
-    vector<int> primos = {3, 5, 7, 11, 17};
+    vector<int> primos = { 17, 29, 53, 97, 193, 389, 769, 1543};
 
     int folding(string clave) {
 	    int parte1 = 0, parte2 = 0;
@@ -72,10 +72,32 @@ private:
         }
         return numero;
     }
+    void rehash(int nuevaCapacidad){
+        NodoHash<T>** viejo = this->arreglo;
+        int copia_capacidad = this->capacidad;
+
+        this->capacidad = nuevaCapacidad;
+        this->elementos = 0;
+        this->arreglo = new NodoHash<T>*[nuevaCapacidad];
+        for (int i = 0; i < nuevaCapacidad; i++) {
+            this->arreglo[i] = nullptr;
+        }
+
+        for (int i = 0; i < copia_capacidad; i++) {
+            if (viejo[i] != nullptr && !viejo[i]->fueBorrado()) {
+                this->insertar(viejo[i]->obtenerClave(), viejo[i]->obtenerValor());
+            }
+
+            if (viejo[i] != nullptr) {
+                delete viejo[i];
+            }
+        }
+        delete[] viejo;
+    }
 
 public:
-    Hash(int capacidadInicial) {
-        this->capacidad = capacidadInicial;
+    Hash(int elementos = 12) {
+        this->capacidad = this->siguientePrimo(elementos);
         this->elementos = 0;
         this->arreglo = new NodoHash<T>*[this->capacidad];
         for (int i = 0; i < this->capacidad; i++) {
@@ -101,8 +123,8 @@ public:
         int indice = this->funcionHash(clave);
         int aux = indice;
         if((double)(this->elementos + 1)/(double)this->capacidad >= 0.75) {
-            cout << "Se requiere rehashear" << endl; // borrar
-            this->rehashear(this->siguientePrimo(this->elementos * 2));
+
+            this->rehash(this->siguientePrimo(this->elementos * 2));
         }
         while(this->arreglo[indice] != nullptr && !this->arreglo[indice]->fueBorrado()) {
             if(this->arreglo[indice]->obtenerClave() == clave) {
@@ -112,9 +134,9 @@ public:
                 return;
             }
             indice = (indice + 1) % this->capacidad;
-            // ???????????
+
             if(aux == indice) {
-                throw runtime_error("tabla completa");
+                return;
             }
             
         }
@@ -160,30 +182,7 @@ public:
     }
     double factor_carga() {
         return (double)this->elementos / (double)this->capacidad;
-    }
-    //pasar a private
-    void rehashear(int nuevaCapacidad){
-        NodoHash<T>** viejo = this->arreglo;
-        int copia_capacidad = this->capacidad;
-
-        this->capacidad = nuevaCapacidad;
-        this->elementos = 0;
-        this->arreglo = new NodoHash<T>*[nuevaCapacidad];
-        for (int i = 0; i < nuevaCapacidad; i++) {
-            this->arreglo[i] = nullptr;
-        }
-
-        for (int i = 0; i < copia_capacidad; i++) {
-            if (viejo[i] != nullptr && !viejo[i]->fueBorrado()) {
-                this->insertar(viejo[i]->obtenerClave(), viejo[i]->obtenerValor());
-            }
-
-            if (viejo[i] != nullptr) {
-                delete viejo[i];
-            }
-        }
-        delete[] viejo;
-    }
+    } 
 
     int obtenerIndice(string clave) {
         int indice = this->funcionHash(clave);
@@ -200,7 +199,7 @@ public:
         }
         return {};
     }
-    void print() {
+    void mostrar() {
         cout << "(Elementos: " << this->elementos << " | Capacidad: " << this->capacidad << "| Factor Carga: " << this->factor_carga() << ")" << endl;
         for (int i = 0; i < this->capacidad; i++) {
             if (this->arreglo[i] == nullptr) {
