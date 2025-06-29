@@ -1,0 +1,91 @@
+UNAHUR	Biblioteca Miguel Cervantes	VILLA TESEI	0.35	17800	950
+FCE	Biblioteca Economicas	CABA	0.85	24500	1200
+FADU	Biblioteca Arquitectura	CABA	0.65	17800	850
+UNLAM	Leopoldo Marechal	SAN JUSTO	0.55	10500	750
+UNTREF	Biblioteca Universidad Tres de Febrero	CASEROS	0.45	15600	800
+UBA	Biblioteca Central Universidad de Buenos Aires	CABA	1.20	35000	2500
+ITBA	Biblioteca Instituto Tecnologico Buenos Aires	CABA	0.40	12000	600
+UADE	Biblioteca Universidad Argentina de la Empresa	CABA	0.50	18000	900
+USAL	Biblioteca Universidad del Salvador	CABA	0.60	20000	1100
+UCES	Biblioteca Universidad de Ciencias Empresariales	CABA	0.35	15000	700
+UAI	Biblioteca Universidad Abierta Interamericana	CABA	0.55	16000	850
+UCA	Biblioteca Universidad Catolica Argentina	CABA	0.70	22000	1200
+UMSA	Biblioteca Universidad del Museo Social Argentino	CABA	0.30	12000	500
+UNQ	Biblioteca Universidad Nacional de Quilmes	QUILMES	0.65	19000	1000
+UNGS	Biblioteca Universidad Nacional de General Sarmiento	SAN MIGUEL	0.40	14000	750
+UNSAM	Biblioteca Universidad Nacional de San Martin	SAN MARTIN	0.55	17000	900
+UNM	Biblioteca Universidad Nacional de Moreno	MORENO	0.35	13000	650
+UNO	Biblioteca Universidad Nacional del Oeste	MORENO	0.45	15000	800
+UNPAZ	Biblioteca Universidad Nacional de Jose C. Paz	JOSE C. PAZ	0.30	11000	550
+UNCOMA	Biblioteca Universidad Nacional del Comahue	NEUQUEN	0.80	25000	1300
+UNLP	Biblioteca Universidad Nacional de La Plata	LA PLATA	1.10	32000	1800
+UNR	Biblioteca Universidad Nacional de Rosario	ROSARIO	0.90	28000	1500
+UNC	Biblioteca Universidad Nacional de Cordoba	CORDOBA	1.00	30000	1600
+UNT	Biblioteca Universidad Nacional de Tucuman	TUCUMAN	0.75	24000	1200
+UNS	Biblioteca Universidad Nacional del Sur	BAHIA BLANCA	0.70	22000	1100
+UNL	Biblioteca Universidad Nacional del Litoral	SANTA FE	0.65	20000	1000
+UNNE	Biblioteca Universidad Nacional del Nordeste	CORRIENTES	0.60	19000	950
+UNJU	Biblioteca Universidad Nacional de Jujuy	JUJUY	0.50	16000	800
+UNCA	Biblioteca Universidad Nacional de Catamarca	CATAMARCA	0.45	15000	750
+UNSE	Biblioteca Universidad Nacional de Santiago del Estero	SANTIAGO DEL ESTERO	0.40	14000	700
+UNRC	Biblioteca Universidad Nacional de Rio Cuarto	RIO CUARTO	0.55	17000	850
+UNVM	Biblioteca Universidad Nacional de Villa Maria	VILLA MARIA	0.35	13000	650
+UNSJ	Biblioteca Universidad Nacional de San Juan	SAN JUAN	0.60	18000	900
+UNSL	Biblioteca Universidad Nacional de San Luis	SAN LUIS	0.50	16000	800
+UNLPAM	Biblioteca Universidad Nacional de La Pampa	SANTA ROSA	0.45	15000	750
+UNCO	Biblioteca Universidad Nacional del Comahue	NEUQUEN	0.80	25000	1300
+UNPSJB	Biblioteca Universidad Nacional de la Patagonia San Juan Bosco	COMODORO RIVADAVIA	0.55	17000	850
+UNPA	Biblioteca Universidad Nacional de la Patagonia Austral	RIO GALLEGOS	0.40	14000	700
+UNRN	Biblioteca Universidad Nacional de Rio Negro	VIEDMA	0.35	13000	650
+UNQ2	Biblioteca Universidad Nacional de Quilmes Campus	BERNAL	0.30	10000	500
+UNGS2	Biblioteca Universidad Nacional de General Sarmiento Campus	MALVINAS ARGENTINAS	0.25	8000	400
+UNSAM2	Biblioteca Universidad Nacional de San Martin Campus	VILLA BALLESTER	0.35	12000	600
+UNM2	Biblioteca Universidad Nacional de Moreno Campus	PASO DEL REY	0.20	7000	350
+UNO2	Biblioteca Universidad Nacional del Oeste Campus	MERLO	0.30	9000	450
+UNPAZ2	Biblioteca Universidad Nacional de Jose C. Paz Campus	JOSE C. PAZ	0.25	8000	400
+UNCOMA2	Biblioteca Universidad Nacional del Comahue Campus	BARILOCHE	0.60	18000	900
+UNLP2	Biblioteca Universidad Nacional de La Plata Campus	ENSSENADA	0.80	25000	1300
+UNR2	Biblioteca Universidad Nacional de Rosario Campus	ZAVALLA	0.70	22000	1100
+UNC2	Biblioteca Universidad Nacional de Cordoba Campus	VILLA ALLENDE	0.65	20000	1000
+UNT2	Biblioteca Universidad Nacional de Tucuman Campus	YERBA BUENA	0.55	17000	850
+UNS2	Biblioteca Universidad Nacional del Sur Campus	PALIHAUE	0.50	16000	800
+UNL2	Biblioteca Universidad Nacional del Litoral Campus	ESPERANZA	0.45	15000	750
+UNNE2	Biblioteca Universidad Nacional del Nordeste Campus	RESISTENCIA	0.40	14000	700
+UNJU2	Biblioteca Universidad Nacional de Jujuy Campus	PALPALA	0.35	13000	650
+UNCA2	Biblioteca Universidad Nacional de Catamarca Campus	VALLE VIEJO	0.30	12000	600
+UNSE2	Biblioteca Universidad Nacional de Santiago del Estero Campus	LA BANDA	0.35	13000	650
+UNRC2	Biblioteca Universidad Nacional de Rio Cuarto Campus	HOLMBERG	0.45	15000	750
+UNVM2	Biblioteca Universidad Nacional de Villa Maria Campus	VILLA MARIA	0.30	11000	550
+UNSJ2	Biblioteca Universidad Nacional de San Juan Campus	RIVADAVIA	0.40	14000	700
+UNSL2	Biblioteca Universidad Nacional de San Luis Campus	VILLA MERCEDES	0.35	13000	650
+UNLPAM2	Biblioteca Universidad Nacional de La Pampa Campus	GENERAL PICO	0.40	14000	700
+UNCO2	Biblioteca Universidad Nacional del Comahue Campus	ZAPALA	0.50	16000	800
+UNPSJB2	Biblioteca Universidad Nacional de la Patagonia San Juan Bosco Campus	ESQUEL	0.45	15000	750
+UNPA2	Biblioteca Universidad Nacional de la Patagonia Austral Campus	RIO TURBIO	0.35	13000	650
+UNRN2	Biblioteca Universidad Nacional de Rio Negro Campus	BARILOCHE	0.55	17000	850
+UNQ3	Biblioteca Universidad Nacional de Quilmes Sede	FLORENCIO VARELA	0.25	8000	400
+UNGS3	Biblioteca Universidad Nacional de General Sarmiento Sede	MORENO	0.20	7000	350
+UNSAM3	Biblioteca Universidad Nacional de San Martin Sede	MARTINEZ	0.30	10000	500
+UNM3	Biblioteca Universidad Nacional de Moreno Sede	MORENO	0.25	8000	400
+UNO3	Biblioteca Universidad Nacional del Oeste Sede	ITUZAINGO	0.30	9000	450
+UNPAZ3	Biblioteca Universidad Nacional de Jose C. Paz Sede	JOSE C. PAZ	0.20	6000	300
+UNCOMA3	Biblioteca Universidad Nacional del Comahue Sede	NEUQUEN	0.45	15000	750
+UNLP3	Biblioteca Universidad Nacional de La Plata Sede	LA PLATA	0.70	22000	1100
+UNR3	Biblioteca Universidad Nacional de Rosario Sede	ROSARIO	0.60	19000	950
+UNC3	Biblioteca Universidad Nacional de Cordoba Sede	CORDOBA	0.55	17000	850
+UNT3	Biblioteca Universidad Nacional de Tucuman Sede	TUCUMAN	0.50	16000	800
+UNS3	Biblioteca Universidad Nacional del Sur Sede	BAHIA BLANCA	0.45	15000	750
+UNL3	Biblioteca Universidad Nacional del Litoral Sede	SANTA FE	0.40	14000	700
+UNNE3	Biblioteca Universidad Nacional del Nordeste Sede	CORRIENTES	0.35	13000	650
+UNJU3	Biblioteca Universidad Nacional de Jujuy Sede	JUJUY	0.30	12000	600
+UNCA3	Biblioteca Universidad Nacional de Catamarca Sede	CATAMARCA	0.25	11000	550
+UNSE3	Biblioteca Universidad Nacional de Santiago del Estero Sede	SANTIAGO DEL ESTERO	0.30	12000	600
+UNRC3	Biblioteca Universidad Nacional de Rio Cuarto Sede	RIO CUARTO	0.40	14000	700
+UNVM3	Biblioteca Universidad Nacional de Villa Maria Sede	VILLA MARIA	0.25	10000	500
+UNSJ3	Biblioteca Universidad Nacional de San Juan Sede	SAN JUAN	0.35	13000	650
+UNSL3	Biblioteca Universidad Nacional de San Luis Sede	SAN LUIS	0.30	12000	600
+UNLPAM3	Biblioteca Universidad Nacional de La Pampa Sede	SANTA ROSA	0.35	13000	650
+UNCO3	Biblioteca Universidad Nacional del Comahue Sede	NEUQUEN	0.45	15000	750
+UNPSJB3	Biblioteca Universidad Nacional de la Patagonia San Juan Bosco Sede	COMODORO RIVADAVIA	0.40	14000	700
+UNPA3	Biblioteca Universidad Nacional de la Patagonia Austral Sede	RIO GALLEGOS	0.30	12000	600
+UNRN3	Biblioteca Universidad Nacional de Rio Negro Sede	VIEDMA	0.25	11000	550 

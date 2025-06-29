@@ -224,6 +224,29 @@ NodoArbol<T>* ABB<T>::encontrarMinimo(NodoArbol<T>* nodo) {
     return nodo;
 }
 
+// Implementación del método buscar
+template <typename T>
+T* ABB<T>::buscar(const string& codigo) {
+    NodoArbol<T>* nodo = buscarRecursivo(raiz, codigo);
+    if (nodo != nullptr) {
+        return new T(nodo->obtenerDato());
+    }
+    return nullptr;
+}
+
+template <typename T>
+NodoArbol<T>* ABB<T>::buscarRecursivo(NodoArbol<T>* nodo, const string& codigo) {
+    if (nodo == nullptr || nodo->obtenerDato().getCodigoBiblioteca() == codigo) {
+        return nodo;
+    }
+    
+    if (codigo < nodo->obtenerDato().getCodigoBiblioteca()) {
+        return buscarRecursivo(nodo->obtenerHijoIzquierdo(), codigo);
+    } else {
+        return buscarRecursivo(nodo->obtenerHijoDerecho(), codigo);
+    }
+}
+
 // Instanciaciones explícitas
 template class ABB<Prestamo>;
 template class ABB<Biblioteca>;

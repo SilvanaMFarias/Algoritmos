@@ -18,6 +18,9 @@ private:
   // Métodos para eliminación
   NodoArbol<T>* eliminarRecursivo(NodoArbol<T>* nodo, const string& codigo);
   NodoArbol<T>* encontrarMinimo(NodoArbol<T>* nodo);
+  
+  // Método para búsqueda
+  NodoArbol<T>* buscarRecursivo(NodoArbol<T>* nodo, const string& codigo);
 
 public:
   ABB();
@@ -33,6 +36,9 @@ public:
   
   // Método público para eliminar
   bool eliminar(const string& codigo);
+  
+  // Método público para buscar
+  T* buscar(const string& codigo);
 };
 
 #endif // ABB_H_INCLUDED
