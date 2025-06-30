@@ -21,6 +21,10 @@ void mostrarMenu() {
     cout << "10. Buscar biblioteca por codigo (HASH)" << endl;
     cout << "11. Comparar rendimiento de busqueda (con muchas bibliotecas)" << endl;
     cout << "12. Mostrar estadisticas de tabla hash" << endl;
+    cout << "\n--- ANALISIS DE PRESTAMOS ---" << endl;
+    cout << "13. Total de prestamos por biblioteca en rango de fechas" << endl;
+    cout << "14. Detectar bibliotecas con alta carga (semana)" << endl;
+    cout << "15. Buscar prestamos de usuario por ISBN" << endl;
     cout << "0. Salir" << endl;
     cout << "Seleccione una opcion: ";
 }
@@ -148,6 +152,30 @@ int main() {
                     gb.mostrarEstadisticasHash();
                 } else {
                     cout << "Primero debe cargar las bibliotecas (opcion 1).\n";
+                }
+                break;
+
+            case 13:
+                if (cargadosPrestamos) {
+                    gp.totalPrestamosPorBibliotecaEnRangoDeFechas();
+                } else {
+                    cout << "Primero debe cargar los prestamos (opcion 4).\n";
+                }
+                break;
+
+            case 14:
+                if (cargadosPrestamos) {
+                    gp.detectarBibliotecasConAltaCarga();
+                } else {
+                    cout << "Primero debe cargar los prestamos (opcion 4).\n";
+                }
+                break;
+
+            case 15:
+                if (cargadosPrestamos) {
+                    gp.buscarPrestamosDeUsuarioPorISBN();
+                } else {
+                    cout << "Primero debe cargar los prestamos (opcion 4).\n";
                 }
                 break;
 
