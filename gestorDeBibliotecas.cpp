@@ -69,8 +69,8 @@ void GestorDeBibliotecas::mostrarTodasArbolIndorden(){
 }
 
 GestorDeBibliotecas::~GestorDeBibliotecas(){
-    listaB.~Lista();
-  arbolB.~ABB();
+    // Los destructores se llaman automáticamente
+    // No es necesario llamarlos explícitamente
 }
 
 Biblioteca* GestorDeBibliotecas::buscarPorCodigo(const string &codigo) {
@@ -351,6 +351,10 @@ void GestorDeBibliotecas::consultarCaminoMinimo() {
     
     // Calcular las distancias mínimas usando Floyd-Warshall
     gDb.calcularDistMinFloydWarshall();
+    
+    // Mostrar las matrices de distancias y recorridos
+    cout << "\n--- MATRICES DE DISTANCIAS Y RECORRIDOS ---" << endl;
+    gDb.mostrarMatricesDistanciasYRecorridos();
     
     string bibliotecaOrigen, bibliotecaDestino;
     
