@@ -158,9 +158,10 @@ void ABB<T>::mostrarRecorridoInordenIterativo() {
 // Implementación de métodos de eliminación
 template <typename T>
 bool ABB<T>::eliminar(const string& codigo) {
-    NodoArbol<T>* nodoOriginal = raiz;
+    int nodosAntes = contarNodos();
     raiz = eliminarRecursivo(raiz, codigo);
-    return raiz != nodoOriginal; // Retorna true si se eliminó algo
+    int nodosDespues = contarNodos();
+    return nodosDespues < nodosAntes; // Retorna true si se eliminó un nodo
 }
 
 template <typename T>
