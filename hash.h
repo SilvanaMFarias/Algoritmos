@@ -45,7 +45,7 @@ class Hash {
 private:
     int capacidad, elementos;
     NodoHash<T>** arreglo;
-    vector<int> primos = { 17, 29, 53, 97, 193, 389, 769, 1543};
+    vector<int> primos = { 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229};
 
     int folding(string clave) {
 	    int parte1 = 0, parte2 = 0;
@@ -66,7 +66,7 @@ private:
     }
     int siguientePrimo(int numero) {
         for(int i = 0; i < (int)this->primos.size(); i++) {
-            if(this->primos[i] > numero) {
+            if(this->primos[i] >= numero) {
                 return this->primos[i];
             }
         }
@@ -96,8 +96,9 @@ private:
     }
 
 public:
-    Hash(int elementos = 12) {
-        this->capacidad = this->siguientePrimo(elementos);
+    Hash(int elementos = 3) {
+        int tamanio = std::round(elementos / 0.75);
+        this->capacidad = this->siguientePrimo(tamanio);
         this->elementos = 0;
         this->arreglo = new NodoHash<T>*[this->capacidad];
         for (int i = 0; i < this->capacidad; i++) {
@@ -207,7 +208,6 @@ public:
                 } else if (this->arreglo[i]->fueBorrado()) {
                 cout << "[ Borrado ]" << endl;
                 } else {
-                cout << "[ Ocupado ]" << endl;
                 cout << "(  " << this->arreglo[i]->obtenerClave() << "  )" << endl;
             }
         }
