@@ -40,3 +40,15 @@ void Biblioteca::mostrarInformacion() const {
   cout << "Cantidad de libros: " << cantidadLibros << endl;
   cout << "Cantidad de usuarios: " << cantidadUsuarios << endl;
 }
+
+bool Biblioteca::compararPorLibros(Biblioteca a, Biblioteca b) {
+  return a.getCantidadLibros() < b.getCantidadLibros();
+}
+
+bool Biblioteca::compararPorSuperficie(Biblioteca a, Biblioteca b) {
+  return a.getSuperficie() < b.getSuperficie();
+}
+
+bool Biblioteca::compararPorUsuarios(Biblioteca a, Biblioteca b) {
+  return a.getCantidadUsuarios() < b.getCantidadUsuarios();
+}

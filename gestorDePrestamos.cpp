@@ -277,7 +277,7 @@ void GestorDePrestamos::detectarBibliotecasConAltaCarga() {
 
 // 3. Buscar todos los préstamos de un usuario por ISBN
 void GestorDePrestamos::buscarPrestamosDeUsuarioPorISBN() {
-    if (listaP.obtener_largo() == 0) {
+    if (listaP.getCantidad() == 0) {
         cout << "❌ No hay préstamos cargados. Primero debe cargar los préstamos (opción 4)." << endl;
         return;
     }
@@ -288,19 +288,29 @@ void GestorDePrestamos::buscarPrestamosDeUsuarioPorISBN() {
     string isbn;
     
     cout << "Ingrese el ID del usuario: ";
-    cin >> usuarioId;
+    while (!(cin >> usuarioId)) {
+        cout << "Entrada inválida. Ingrese un número de usuario válido: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     
     cout << "Ingrese el ISBN del libro: ";
-    cin >> isbn;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, isbn);
+    while (isbn.empty()) {
+        cout << "ISBN vacío. Ingrese el ISBN del libro: ";
+        getline(cin, isbn);
+    }
     
     cout << "\n🔍 Buscando préstamos del usuario " << usuarioId << " con ISBN " << isbn << endl;
     
     vector<Prestamo> prestamosEncontrados;
-    
-    // Buscar en la lista
-    for (int i = 1; i <= listaP.obtener_largo(); i++) {
+    int cantidadPrestamos = listaP.getCantidad();
+    if (cantidadPrestamos <= 0) {
+        cout << "[DEBUG] La lista de préstamos está vacía o corrupta." << endl;
+        return;
+    }
+    for (int i = 1; i <= cantidadPrestamos; i++) {
         Prestamo prestamo = listaP.consulta(i);
         if (prestamo.getUsuarioId() == usuarioId && prestamo.getIsbn() == isbn) {
             prestamosEncontrados.push_back(prestamo);

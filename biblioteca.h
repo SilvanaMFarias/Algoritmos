@@ -29,6 +29,11 @@ public:
 
   // Mostrar información
   void mostrarInformacion() const;
+
+  // Comparaciones para ordenamiento
+  static bool compararPorLibros(Biblioteca a, Biblioteca b);
+  static bool compararPorSuperficie(Biblioteca a, Biblioteca b);
+  static bool compararPorUsuarios(Biblioteca a, Biblioteca b);
 };
 
 #endif // BIBLIOTECA_H

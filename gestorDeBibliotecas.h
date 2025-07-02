@@ -37,6 +37,11 @@ public:
   void agregarNuevaBiblioteca(string nombreArchivo);
   void guardarEnArchivo(string nombreArchivo);
   void eliminarBibliotecaPorCodigo(string nombreArchivo);
+
+  // Ordenamiento
+  void ordenarBibliotecasPorLibros();
+  void ordenarBibliotecasPorSuperficie();
+  void ordenarBibliotecasPorUsuarios();
 };
 
 #endif

@@ -125,6 +125,36 @@ public:
              << endl;
     }
 
+    void intercambiar(int pos1, int pos2)
+    {
+    if (pos1 < 1 || pos1 > largo || pos2 < 1 || pos2 > largo || pos1 == pos2)
+        return;
+
+    Nodo<T>* nodo1 = obtener_nodo(pos1);
+    Nodo<T>* nodo2 = obtener_nodo(pos2);
+
+    T temp = nodo1->obtener_dato();
+    nodo1->cambiar_dato(nodo2->obtener_dato());
+    nodo2->cambiar_dato(temp);
+    }
+
+    void ordenarPorSeleccion(bool (*criterio)(T, T))
+    {
+        for (int i = 1; i < largo; ++i) {
+            int min_pos = i;
+            for (int j = i + 1; j <= largo; ++j) {
+                T a = consulta(j);
+                T b = consulta(min_pos);
+                if (criterio(a, b)) {
+                    min_pos = j;
+                }
+            }
+            if (min_pos != i) {
+                intercambiar(i, min_pos);
+            }
+        }
+    }
+
 private:
     Nodo<T> *obtener_nodo(int pos)
     {
