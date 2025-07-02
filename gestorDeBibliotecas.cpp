@@ -62,7 +62,7 @@ void GestorDeBibliotecas::mostrarTodasLista(){
 void GestorDeBibliotecas::mostrarTodasArbolIndorden(){
   cout << "--- Mostrando bibliotecas en arbol (inorden) ---" << endl;
   if (cantidad == 0) {
-    cout << "No hay bibliotecas cargadas en el árbol." << endl;
+    cout << "No hay bibliotecas cargadas en el arbol." << endl;
   } else {
     arbolB.mostrarRecorridoInorden(); 
   }
@@ -146,25 +146,25 @@ void GestorDeBibliotecas::compararRendimientoBusqueda(const string &codigo) {
     if (resultadoHash && resultadoLista && resultadoArbol) {
         cout << "\n--- Analisis de Rendimiento ---" << endl;
         
-        // Encontrar el más rápido
+        // Encontrar el más rapido
         long long tiempoMin = min({duracionHash.count(), duracionLista.count(), duracionArbol.count()});
         string masRapido;
         
         if (tiempoMin == duracionHash.count()) {
             masRapido = "tabla hash";
             cout << "🏆 MAS RAPIDO: Tabla Hash (" << duracionHash.count() << " ns)" << endl;
-            cout << "   vs Lista: " << fixed << setprecision(2) << (double)duracionLista.count() / duracionHash.count() << "x más lenta" << endl;
-            cout << "   vs Arbol: " << fixed << setprecision(2) << (double)duracionArbol.count() / duracionHash.count() << "x más lento" << endl;
+            cout << "   vs Lista: " << fixed << setprecision(2) << (double)duracionLista.count() / duracionHash.count() << "x mas lenta" << endl;
+            cout << "   vs Arbol: " << fixed << setprecision(2) << (double)duracionArbol.count() / duracionHash.count() << "x mas lento" << endl;
         } else if (tiempoMin == duracionArbol.count()) {
-            masRapido = "árbol ABB";
+            masRapido = "arbol ABB";
             cout << "🏆 MAS RAPIDO: Arbol ABB (" << duracionArbol.count() << " ns)" << endl;
-            cout << "   vs Hash: " << fixed << setprecision(2) << (double)duracionHash.count() / duracionArbol.count() << "x más lento" << endl;
-            cout << "   vs Lista: " << fixed << setprecision(2) << (double)duracionLista.count() / duracionArbol.count() << "x más lenta" << endl;
+            cout << "   vs Hash: " << fixed << setprecision(2) << (double)duracionHash.count() / duracionArbol.count() << "x mas lento" << endl;
+            cout << "   vs Lista: " << fixed << setprecision(2) << (double)duracionLista.count() / duracionArbol.count() << "x mas lenta" << endl;
         } else {
             masRapido = "lista";
             cout << "🏆 MAS RAPIDO: Lista (" << duracionLista.count() << " ns)" << endl;
-            cout << "   vs Hash: " << fixed << setprecision(2) << (double)duracionHash.count() / duracionLista.count() << "x más lento" << endl;
-            cout << "   vs Arbol: " << fixed << setprecision(2) << (double)duracionArbol.count() / duracionLista.count() << "x más lento" << endl;
+            cout << "   vs Hash: " << fixed << setprecision(2) << (double)duracionHash.count() / duracionLista.count() << "x mas lento" << endl;
+            cout << "   vs Arbol: " << fixed << setprecision(2) << (double)duracionArbol.count() / duracionLista.count() << "x mas lento" << endl;
         }
         
         cout << "\nComplejidad teorica:" << endl;
@@ -173,7 +173,7 @@ void GestorDeBibliotecas::compararRendimientoBusqueda(const string &codigo) {
         cout << "• Lista: O(n)" << endl;
         
         if (masRapido == "lista") {
-            cout << "\nNota: Con pocos elementos, la lista puede ser más rápida debido a la sobrecarga de las estructuras complejas." << endl;
+            cout << "\nNota: Con pocos elementos, la lista puede ser mas rapida debido a la sobrecarga de las estructuras complejas." << endl;
         }
     }
     
@@ -194,6 +194,9 @@ void GestorDeBibliotecas::mostrarEstadisticasHash() {
     } else {
         cout << "✅ Factor de carga optimo" << endl;
     }
+    cout << endl;
+    cout << "\n--- Mostrando la tabla  ---" << endl;
+    tablaHash.mostrar();
 }
 
 void GestorDeBibliotecas::agregar(const Biblioteca &biblio) {
@@ -323,10 +326,6 @@ void GestorDeBibliotecas::guardarEnArchivo(string nombreArchivo) {
         return;
     }
 
-    // Recorrer la lista y escribir cada biblioteca en el archivo
-    // Esto asume que tu clase Lista tiene una forma de iterar o un método para obtener todos los elementos.
-    // Si tu Lista no tiene un iterador, tendrás que adaptar esto.
-
     for (int i = 1; i <= listaB.getCantidad(); ++i) {
         Biblioteca* b = listaB.buscar(i);
         if (b) {
@@ -391,4 +390,17 @@ void GestorDeBibliotecas::consultarCaminoMinimo() {
     cout << "\n--- Recomendacion ---" << endl;
     cout << "Este es el camino optimo para devolver el libro desde " << origen->getNombre();
     cout << " hasta " << destino->getNombre() << "." << endl;
+}
+
+
+void GestorDeBibliotecas::ordenarBibliotecasPorLibros() {
+    listaB.ordenarPorSeleccion(Biblioteca::compararPorLibros);
+}
+
+void GestorDeBibliotecas::ordenarBibliotecasPorSuperficie() {
+    listaB.ordenarPorSeleccion(Biblioteca::compararPorSuperficie);
+}
+
+void GestorDeBibliotecas::ordenarBibliotecasPorUsuarios() {
+    listaB.ordenarPorSeleccion(Biblioteca::compararPorUsuarios);
 }

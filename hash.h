@@ -210,7 +210,8 @@ public:
                 cout << "[ Ocupado ]" << endl;
                 cout << "(  " << this->arreglo[i]->obtenerClave() << "  )" << endl;
             }
-        }  
+        }
+        cout << endl; 
     }
 };
 #endif // HASH_H_INCLUDED

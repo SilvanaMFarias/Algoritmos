@@ -8,7 +8,7 @@
 using namespace std;
 
 void mostrarMenu() {
-    cout << "\n========= SISTEMA DE GESTION DE BIBLIOTECAS =========" << endl;
+    cout << "\n========= GESTION DE BIBLIOTECAS =========" << endl << endl;
     cout << "1. Cargar bibliotecas desde archivo" << endl;
     cout << "2. Mostrar bibliotecas (lista)" << endl;
     cout << "3. Mostrar bibliotecas (arbol inorden)" << endl;
@@ -21,12 +21,15 @@ void mostrarMenu() {
     cout << "10. Buscar biblioteca por codigo (HASH)" << endl;
     cout << "11. Comparar rendimiento de busqueda (con muchas bibliotecas)" << endl;
     cout << "12. Mostrar estadisticas de tabla hash" << endl;
-    cout << "\n--- ANALISIS DE PRESTAMOS ---" << endl;
-    cout << "13. Total de prestamos por biblioteca en rango de fechas" << endl;
-    cout << "14. Detectar bibliotecas con alta carga (semana)" << endl;
-    cout << "15. Buscar prestamos de usuario por ISBN" << endl;
+    cout << "13. Mostrar lista bibliotecas ordenadas por cantidad de libros (orden ascendente)" << endl;
+    cout << "14. Mostrar lista bibliotecas ordenadas por superficie (orden ascendente)" << endl;
+    cout << "15. Mostrar lista bibliotecas ordenadas por cantidad de usuarios (orden ascendente)" << endl;
+    cout << "\n========= ANALISIS DE PRESTAMOS =========" << endl << endl;
+    cout << "16. Total de prestamos por biblioteca en rango de fechas" << endl;
+    cout << "17. Detectar bibliotecas con alta carga (semana)" << endl;
+    cout << "18. Buscar prestamos de usuario por ISBN" << endl;
     cout << "0. Salir" << endl;
-    cout << "Seleccione una opcion: ";
+    cout << endl << "Seleccione una opcion: ";
 }
 
 int main() {
@@ -42,6 +45,7 @@ int main() {
     do {
         mostrarMenu();
         cin >> opcion;
+        cout << endl;
 
         switch(opcion) {
             case 1:
@@ -156,6 +160,33 @@ int main() {
                 break;
 
             case 13:
+                if (cargadasBibliotecas) {
+                    gb.ordenarBibliotecasPorLibros();
+                    gb.mostrarTodasLista();
+                } else {
+                    cout << "Primero debe cargar las bibliotecas (opcion 1).\n";
+                }
+                break;
+
+            case 14:
+                if (cargadasBibliotecas) {
+                    gb.ordenarBibliotecasPorSuperficie();
+                    gb.mostrarTodasLista();
+                } else {
+                    cout << "Primero debe cargar las bibliotecas (opcion 1).\n";
+                }
+                break;
+
+            case 15:
+                if (cargadasBibliotecas) {
+                    gb.ordenarBibliotecasPorUsuarios();
+                    gb.mostrarTodasLista();
+                } else {
+                    cout << "Primero debe cargar las bibliotecas (opcion 1).\n";
+                }
+                break;
+
+            case 16:
                 if (cargadosPrestamos) {
                     gp.totalPrestamosPorBibliotecaEnRangoDeFechas();
                 } else {
@@ -163,7 +194,7 @@ int main() {
                 }
                 break;
 
-            case 14:
+            case 17:
                 if (cargadosPrestamos) {
                     gp.detectarBibliotecasConAltaCarga();
                 } else {
@@ -171,7 +202,7 @@ int main() {
                 }
                 break;
 
-            case 15:
+            case 18:
                 if (cargadosPrestamos) {
                     gp.buscarPrestamosDeUsuarioPorISBN();
                 } else {
@@ -186,6 +217,9 @@ int main() {
             default:
                 cout << "Opcion invalida. Intente nuevamente.\n";
         }
+        cout << endl << "Presione Enter para continuar...";
+        cin.ignore(); // descarta cualquier entrada previa
+        cin.get();    // espera que el usuario presione Enter
 
     } while(opcion != 0);
 
